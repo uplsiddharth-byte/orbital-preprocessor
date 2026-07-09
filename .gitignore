@@ -1,0 +1,75 @@
+# --- Project Specific Artifacts ---
+# Generated protobuf classes (as per your layout notes)
+**/__pycache__/
+**/*_pb2.py
+**/*_pb2_grpc.py
+
+# --- Python Environment ---
+.venv/
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Data & Weights ---
+# Prevents heavy model weights or datasets from being pushed
+*.pth
+*.onnx
+*.weights
+data/*.zip
+data/*.csv
+data/*.json
+!data/__init__.py
+
+# --- OS Generated Files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- Tools & IDEs ---
+.vscode/
+.idea/
+*.swp
+
+# --- OSP Generated Datasets ---
+osp_dataset/
+osp_dataset_*/
+
+# --- Training Runs (Ultralytics output) ---
+runs/
+
+# --- Model Artifacts (generated, not committed) ---
+model/artifacts/*.onnx
+model/artifacts/*.pt
+yolov8n_6ch.pt
+yolov8n.pt
+
+# --- Inference Output ---
+/output/
+
+# --- Proto generated (re-compile with compile_proto.sh) ---
+# Uncommenting this will require running compile_proto.sh on every clone:
+# inference/osp_pb2.py
+
+# --- RAG Vector Store (auto-generated at runtime, do not commit) ---
+rag/vector_store/
+
+# --- Scene Memory DB (runtime state, do not commit) ---
+ground/osp_memory.db
+
+# --- Misc ---
+globe.html
+*.npy
+!data/__init__.py
+!ground/__init__.py
+!model/__init__.py
+!inference/__init__.py
+# --- Claude Code session tooling (local, not part of the project) ---
+.claude/
+ground/osp_memory.db-shm
+ground/osp_memory.db-wal
