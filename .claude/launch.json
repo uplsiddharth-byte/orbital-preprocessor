@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "osp-dashboard",
+      "runtimeExecutable": "/private/tmp/claude-501/-Users-siddharthupl-orbital-preprocessor-main/4a2beb90-a752-49aa-9c6c-ba4a7d8b65cf/scratchpad/venv/bin/streamlit",
+      "runtimeArgs": ["run", "ground/dashboard.py", "--server.headless", "true", "--server.port", "8501"],
+      "port": 8501
+    }
+  ]
+}
