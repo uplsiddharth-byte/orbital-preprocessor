@@ -18,6 +18,8 @@ html,body{width:1920px;height:1080px;background:#000;overflow:hidden;font-family
 .glass{background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.10);border-radius:8px;box-shadow:inset 0 0 14px rgba(255,255,255,.025)}
 .chip{display:inline-block;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);border-radius:5px;padding:10px 20px;letter-spacing:3px;text-transform:uppercase;font-size:22px;color:var(--d);font-weight:400}
 .giant{font-size:330px;font-weight:200;letter-spacing:-6px;color:var(--f);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+#sub{position:absolute;left:0;width:1920px;bottom:30px;text-align:center;pointer-events:none;z-index:50}
+#subt{display:inline-block;font-size:36px;font-weight:400;color:#fff;background:rgba(0,0,0,.66);padding:8px 24px 10px;border-radius:8px;letter-spacing:.3px;line-height:1.25;text-shadow:0 1px 3px rgba(0,0,0,.8)}
 #hud{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
 .hudtxt{position:absolute;font-size:17px;letter-spacing:4px;text-transform:uppercase;color:#6f6f6f;font-weight:400}
 #prog{position:absolute;left:0;bottom:0;height:3px;background:rgba(255,255,255,.55)}
@@ -38,7 +40,7 @@ html,body{width:1920px;height:1080px;background:#000;overflow:hidden;font-family
     <div class="abs kicker" id="s1k" style="left:0;width:1920px;text-align:center;top:150px">One satellite scene. Raw.</div>
     <div class="abs giant" id="s1big" style="left:0;width:1920px;text-align:center;top:235px">0 MB</div>
     <canvas class="abs" id="s1grid" width="1200" height="240" style="left:360px;top:650px"></canvas>
-    <div class="abs h2" id="s1sub" style="left:0;width:1920px;text-align:center;top:930px;font-size:54px">≈ 85,000× smaller</div>
+    <div class="abs h2" id="s1sub" style="left:0;width:1920px;text-align:center;top:895px;font-size:54px">≈ 85,000× smaller</div>
   </section>
 
   <!-- S2 PROBLEM -->
@@ -79,8 +81,8 @@ html,body{width:1920px;height:1080px;background:#000;overflow:hidden;font-family
       <div class="abs mono" style="left:16px;top:14px;font-size:20px;letter-spacing:3px;color:#f5f5f5;background:rgba(0,0,0,.55);padding:6px 12px;border-radius:4px">SWIR · B11 B12</div>
       <div id="s4boxes"></div>
     </div>
-    <div class="abs body" id="s4cap" style="left:120px;top:925px;width:1700px;font-size:36px">Metal glows against water. Light haze doesn’t stop it.</div>
-    <div class="abs mono" id="s4tech" style="left:120px;top:990px;font-size:20px;letter-spacing:3px;color:#8b8b8b">YOLOv8n · 6-CHANNEL STEM-SWAP · INT8 · RUNS ON-BOARD</div>
+    <div class="abs body" id="s4cap" style="left:120px;top:896px;width:1700px;font-size:36px">Metal glows against water. Light haze doesn’t stop it.</div>
+    <div class="abs mono" id="s4tech" style="left:120px;top:948px;font-size:20px;letter-spacing:3px;color:#8b8b8b">YOLOv8n · 6-CHANNEL STEM-SWAP · INT8 · RUNS ON-BOARD</div>
   </section>
 
   <!-- S5 SEND -->
@@ -150,6 +152,7 @@ html,body{width:1920px;height:1080px;background:#000;overflow:hidden;font-family
   </section>
 
   <div id="vig"></div>
+  <div id="sub"><span id="subt"></span></div>
   <div id="hud">
     <div class="hudtxt" id="hudL" style="left:60px;top:40px">◉ OSP · MOI-1A</div>
     <div class="hudtxt mono" id="hudR" style="right:60px;top:40px;font-size:15px">T+00:00</div>
@@ -157,6 +160,7 @@ html,body{width:1920px;height:1080px;background:#000;overflow:hidden;font-family
   </div>
 </div>
 
+<script src="subs.js"></script>
 <script>
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
 const eo=x=>1-Math.pow(1-clamp(x),3);
@@ -433,6 +437,10 @@ window.render=function(t){
       if(i>0&&i<8){}
     }
   });
+  // subtitles
+  const sc=(window.SUBS||[]).find(c=>t>=c.start&&t<c.end);
+  const sb=$('sub');
+  if(sc){$('subt').textContent=sc.text;sb.style.display='block';sb.style.opacity=clamp((t-sc.start)/.1)*clamp((sc.end-t)/.1)}else{sb.style.display='none'}
   // HUD
   const hudOp=clamp((t-5.5)/.5)*(t>57?1-clamp((t-57)/.3):1);
   $('hudL').style.opacity=hudOp;$('hudR').style.opacity=hudOp;

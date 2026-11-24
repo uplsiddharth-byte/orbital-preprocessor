@@ -34,3 +34,10 @@ Drone + counter ticks → boom on the 100 MB→1.2 KB cut (2.5 s) → pad + pluc
 - No detection accuracy / mAP: the repo trains on synthetic data with RGB-adapted weights (README non-goals).
 - No on-orbit performance or latency number: the dashboard's 312 ms is a hard-coded demo value; the shipped telemetry shows 92–214 ms from a dev run.
 - Demo coordinates/IDs are the repo's own synthetic payload.
+
+## Voiceover + subtitles (added)
+- **Voice:** Kokoro v1.0 (free, open-source neural TTS, run locally via `kokoro-onnx`), voice `am_michael`, speed 1.0. ElevenLabs was not usable in this session (host blocked, no API key).
+- **Timing:** each line starts on a scene beat and is checked for overlap (`work/vo.py` → `vo_timings.json`). Music ducks ~7.5 dB under the voice (`work/mix.py`); final mix −14 LUFS, true peak −2.8 dBFS.
+- **Subtitles:** burned into the video (overlay in `work/index.html`, cues in `work/subs.json`) and shipped as `brag.srt` / `brag.vtt`.
+- **Files:** `brag.mp4` = voice + subtitles. `brag-no-voiceover.mp4` = the earlier music-only cut.
+- Rebuild: `node work/render.js stills …` (writes cues.json) → `python work/audio.py` → `python work/vo.py` → `python work/mix.py` → `node work/render.js full` → ffmpeg. Needs Kokoro model files from the `kokoro-onnx` GitHub release `model-files-v1.0` (not committed).
