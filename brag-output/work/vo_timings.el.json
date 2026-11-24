@@ -1,0 +1,135 @@
+[
+ {
+  "i": 0,
+  "start": 0.25,
+  "end": 2.655,
+  "dur": 2.405,
+  "text": "One scene. 100 MB."
+ },
+ {
+  "i": 1,
+  "start": 2.755,
+  "end": 4.591,
+  "dur": 1.836,
+  "text": "1.2 KB."
+ },
+ {
+  "i": 2,
+  "start": 5.5,
+  "end": 7.416,
+  "dur": 1.916,
+  "text": "Satellites are dumb cameras."
+ },
+ {
+  "i": 3,
+  "start": 7.516,
+  "end": 9.541,
+  "dur": 2.025,
+  "text": "They shoot 100 MB of ocean,"
+ },
+ {
+  "i": 4,
+  "start": 9.85,
+  "end": 11.606,
+  "dur": 1.756,
+  "text": "then beam every byte home."
+ },
+ {
+  "i": 5,
+  "start": 12.4,
+  "end": 14.665,
+  "dur": 2.265,
+  "text": "Meet the Orbital Scene Preprocessor."
+ },
+ {
+  "i": 6,
+  "start": 14.765,
+  "end": 17.363,
+  "dur": 2.598,
+  "text": "A satellite that thinks before it speaks."
+ },
+ {
+  "i": 7,
+  "start": 17.7,
+  "end": 20.557,
+  "dur": 2.857,
+  "text": "Six spectral bands, not three."
+ },
+ {
+  "i": 8,
+  "start": 20.7,
+  "end": 25.085,
+  "dur": 4.385,
+  "text": "Shortwave infrared sees through haze, and metal lights up against water."
+ },
+ {
+  "i": 9,
+  "start": 25.6,
+  "end": 26.78,
+  "dur": 1.18,
+  "text": "Detected on board."
+ },
+ {
+  "i": 10,
+  "start": 28.0,
+  "end": 30.158,
+  "dur": 2.158,
+  "text": "Then it sends a brief, not a photo."
+ },
+ {
+  "i": 11,
+  "start": 32.0,
+  "end": 35.58,
+  "dur": 3.58,
+  "text": "100 MB, down to 1.2 KB."
+ },
+ {
+  "i": 12,
+  "start": 36.6,
+  "end": 40.409,
+  "dur": 3.809,
+  "text": "On the ground, one Command Centre shows every pass."
+ },
+ {
+  "i": 13,
+  "start": 40.509,
+  "end": 43.583,
+  "dur": 3.075,
+  "text": "A tactical map, and a live intelligence feed."
+ },
+ {
+  "i": 14,
+  "start": 44.4,
+  "end": 48.888,
+  "dur": 4.488,
+  "text": "ORION retrieves, remembers, reasons. Rules decide."
+ },
+ {
+  "i": 15,
+  "start": 48.988,
+  "end": 51.713,
+  "dur": 2.725,
+  "text": "Orange or red? The alert goes out."
+ },
+ {
+  "i": 16,
+  "start": 51.813,
+  "end": 54.761,
+  "dur": 2.948,
+  "text": "Unsure? Ask the satellite to look again."
+ },
+ {
+  "i": 17,
+  "start": 54.861,
+  "end": 57.794,
+  "dur": 2.934,
+  "text": "A judge checks every alert for hallucinations."
+ },
+ {
+  "i": 18,
+  "start": 57.894,
+  "end": 59.294,
+  "dur": 1.399,
+  "text": "Don't downlink the ocean."
+ }
+]

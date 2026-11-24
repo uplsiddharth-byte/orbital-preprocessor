@@ -41,3 +41,9 @@ Drone + counter ticks → boom on the 100 MB→1.2 KB cut (2.5 s) → pad + pluc
 - **Subtitles:** burned into the video (overlay in `work/index.html`, cues in `work/subs.json`) and shipped as `brag.srt` / `brag.vtt`.
 - **Files:** `brag.mp4` = voice + subtitles. `brag-no-voiceover.mp4` = the earlier music-only cut.
 - Rebuild: `node work/render.js stills …` (writes cues.json) → `python work/audio.py` → `python work/vo.py` → `python work/mix.py` → `node work/render.js full` → ffmpeg. Needs Kokoro model files from the `kokoro-onnx` GitHub release `model-files-v1.0` (not committed).
+
+## ElevenLabs version (added)
+- `brag-elevenlabs.mp4` (+ `brag-elevenlabs.srt/.vtt`): same video, voiced with the ElevenLabs API — premade voice **Daniel (Steady Broadcaster)**, model `eleven_multilingual_v2`, seed 7. One generation pass (≈0.8k of the free tier's 10k characters); clips are cached in `work/el_cache/` so re-timing costs nothing.
+- ElevenLabs reads ~15% slower than Kokoro: line 2 was shortened to "One point two kilobytes." and clips run at 1.06× tempo so every line lands within ~0.6 s of its scene beat (`work/el_place.py`).
+- The API key is not stored anywhere in the repo: the sandbox proxy injects it. `work/el_vo.py` documents how to supply your own header outside the sandbox.
+- `brag.mp4` = Kokoro version; `brag-no-voiceover.mp4` = music only.

@@ -1,7 +1,9 @@
 """Mix voiceover over the music with ducking. Needs numpy + soundfile."""
 import numpy as np, soundfile as sf
 SR = 44100
-m, _ = sf.read('music.wav'); v, _ = sf.read('voice_raw.wav')
+import sys
+VF = sys.argv[1] if len(sys.argv) > 1 else 'voice_raw.wav'; OUT = sys.argv[2] if len(sys.argv) > 2 else 'mix.wav'
+m, _ = sf.read('music.wav'); v, _ = sf.read(VF)
 n = min(len(m), len(v)); m = m[:n]; v = v[:n]
 def hp(x, fc, order=2):
     X = np.fft.rfft(x); f = np.fft.rfftfreq(len(x), 1 / SR); r = (f / fc) ** (2 * order)
@@ -22,5 +24,5 @@ gain = np.interp(np.arange(n), (np.arange(nb) + .5) * blk, gain_blk)
 v *= 0.90                                       # voice level relative to music
 mix = m * gain[:, None] + v[:, None]
 mix = np.tanh(mix * 1.05); mix /= max(1e-9, np.abs(mix).max()) / .89
-sf.write('mix.wav', mix, SR, subtype='PCM_16')
+sf.write(OUT, mix, SR, subtype='PCM_16')
 print('mix ok', np.abs(mix).max())
