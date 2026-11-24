@@ -1,0 +1,3 @@
+Most satellites are dumb cameras: shoot 100 MB of ocean, beam every byte home. I built the other thing. OSP lets the satellite look at 6 spectral bands, find the ships, and downlink a ~1.2 KB brief instead of the photo. On the ground, an LLM analyst with RAG + memory turns that brief into a risk-weighted alert, and can task the satellite to look again.
+
+Don't downlink the ocean. 🛰️ osp-command-centre.streamlit.app
